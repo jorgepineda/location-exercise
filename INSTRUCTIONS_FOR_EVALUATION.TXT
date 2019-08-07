@@ -1,0 +1,21 @@
+INSTRUCTIONS FOR THE EVALUATORS
+-------------------------------
+
+My solution is provided in a class named MultithreadedCountyResolver.
+
+To speed up the processing, the following strategies were implemented:
+
+- All the county polygons were read and cached into a Map.
+- All points were processed in batches of configurable size.
+- Batches are processed in a thread pool of configurable size.
+- Each batch is processed in a separate thread.
+- Once the work is finished, thread pool is smoothly shutdown.
+
+Test routines were implemented separeately:
+- Provided class ResolverTest was modified to use the developed solution using locations-small.csv
+- Another performance class similar to ResolverTest was created to run the implemented solution with locations.csv
+- A Unite test to demonstrate the precision of the provided solution was implemented.
+
+The execution time was substantially reduced. Since the performance parameter is the execution time, when the implemented
+solution is run in an acceptable fast processor, it works well. However, the performance is affected when run in a slow machine
+or a machine with considerable load. These two fators (machine speed and load) are not considered in the time criteria.
